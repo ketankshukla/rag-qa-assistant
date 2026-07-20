@@ -12,6 +12,7 @@
 - 📖 [`USER_GUIDE.md`](./USER_GUIDE.md) — how to use the app, example questions that work, and troubleshooting
 - 🔬 [`HOW_IT_WORKS.md`](./HOW_IT_WORKS.md) — end-to-end technical deep dive into the ingest → embed → retrieve → answer flow
 - 🧠 [`THOUGHT_PROCESS.md`](./THOUGHT_PROCESS.md) — the reasoning behind how this was built, plus a checklist for starting a project like this from scratch
+- 🧩 [`PROJECT_STANDARDS.md`](./PROJECT_STANDARDS.md) — the shared style guide and file checklist used across this whole project series
 
 *(📸 Screenshot placeholder — add a screenshot of the Q&A + sources UI here.)*
 
