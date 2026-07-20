@@ -15,6 +15,14 @@
 
 *(📸 Screenshot placeholder — add a screenshot of the Q&A + sources UI here.)*
 
+## 🛠️ Tech stack
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript + Tailwind CSS
+- [Anthropic SDK](https://www.npmjs.com/package/@anthropic-ai/sdk) (`@anthropic-ai/sdk`) for answering
+- [OpenAI SDK](https://www.npmjs.com/package/openai) (`openai`) for embeddings (`text-embedding-3-small`)
+- [Vitest](https://vitest.dev) for unit tests, `tsx` for the ingest script
+- GitHub Actions for CI, Vercel for hosting
+
 ## 🎯 What it does
 
 Ask a question in the UI and the assistant answers using *only* the content in the `/content` folder. It cites which source file(s) it drew from, and if the answer isn't in the content, it says so instead of guessing.
@@ -82,6 +90,12 @@ Pure retrieval logic (`chunkText`, `cosineSimilarity`, `topK`) is unit tested wi
 npm test
 ```
 
+## 📦 Production build
+
+```bash
+npm run build
+```
+
 ## ☁️ Deployment
 
 Deployed on [Vercel](https://vercel.com) via its GitHub integration: pushes to `master` trigger an automatic build and deploy. Environment variables (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and optionally `ANTHROPIC_MODEL`/`EMBEDDING_MODEL`) are configured in the Vercel project settings, not committed to the repo.
@@ -95,11 +109,3 @@ Built end-to-end with an AI pair-programming agent (Windsurf/Cascade) following 
 ## 📈 Scaling upgrade path
 
 The current design keeps all chunk embeddings in a single JSON file loaded into memory on each request — fine for a small `/content` corpus, but it doesn't scale to large document sets or high query volume. A natural upgrade is **Supabase with the `pgvector` extension**: store chunks and embeddings in a Postgres table, create a vector index, and replace the in-memory `cosineSimilarity`/`topK` scan with a SQL `ORDER BY embedding <-> query_embedding LIMIT k` query. This also removes the need to redeploy the app just to update content.
-
-## 🛠️ Tech stack
-
-- [Next.js](https://nextjs.org) (App Router) + TypeScript + Tailwind CSS
-- [Anthropic SDK](https://www.npmjs.com/package/@anthropic-ai/sdk) (`@anthropic-ai/sdk`) for answering
-- [OpenAI SDK](https://www.npmjs.com/package/openai) (`openai`) for embeddings (`text-embedding-3-small`)
-- [Vitest](https://vitest.dev) for unit tests, `tsx` for the ingest script
-- GitHub Actions for CI, Vercel for hosting
