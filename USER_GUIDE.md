@@ -1,10 +1,10 @@
-# User Guide — RAG Q&A Assistant
+# 📖 User Guide — RAG Q&A Assistant
 
-**Live app:** https://rag-qa-assistant-wheat.vercel.app
+🔗 **Live app:** https://rag-qa-assistant-wheat.vercel.app
 
 This guide shows you how to use the app and what kinds of questions it can (and can't) answer.
 
-## How to use it
+## 🧭 How to use it
 
 1. Open the live URL.
 2. Type a question into the input box.
@@ -13,7 +13,7 @@ This guide shows you how to use the app and what kinds of questions it can (and 
 
 The assistant only answers from the documents in `/content`. It will not use outside knowledge, and it will tell you when it doesn't know rather than guessing.
 
-## What's in the sample content
+## 📂 What's in the sample content
 
 The demo ships with 4 sample documents about a fictional robotics company, **Acme Robotics**:
 - `company-overview.md` — company history, offices, leadership.
@@ -21,7 +21,7 @@ The demo ships with 4 sample documents about a fictional robotics company, **Acm
 - `product-scoutbot.md` — the ScoutBot autonomous mobile robot.
 - `support-faq.md` — repairs, returns, maintenance, third-party grippers.
 
-## Example questions that should work (grounded answers)
+## ✅ Example questions that should work (grounded answers)
 
 Try asking any of these — the answer should cite the matching source file:
 
@@ -38,7 +38,7 @@ Try asking any of these — the answer should cite the matching source file:
 - "How many ScoutBot units can operate in one facility?"
   → Should answer **up to 40 units**, citing `product-scoutbot.md`.
 
-## Example question that should NOT work (out-of-scope)
+## ⚠️ Example question that should NOT work (out-of-scope)
 
 - "What is the capital of France?"
 - "What's the weather like today?"
@@ -46,13 +46,13 @@ Try asking any of these — the answer should cite the matching source file:
 
 For these, the assistant should respond with something like *"I don't know. The provided context doesn't contain information about..."* — it will not make up an answer, even though the underlying model "knows" the real answer from its training data.
 
-## Tips for best results
+## 💡 Tips for best results
 
 - Ask specific, factual questions about the content — the retrieval step works by matching meaning, so specific questions with concrete nouns (product names, topics) retrieve better than vague ones.
 - If an answer seems off or incomplete, check the **Sources** panel — low similarity scores (well under ~0.3) usually mean the question wasn't well covered by the documents.
 - To ask about your own material instead of the Acme Robotics demo content, see the **"Adding your own content"** section in `README.md` — you'll need to replace the files in `/content` and re-run `npm run ingest` locally, then push.
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 - **Empty or strange answers:** the deployed `data/embeddings.json` may be out of date with `/content`. Re-run `npm run ingest` locally and push the updated file.
 - **Error message shown in the UI:** usually means the request failed — check the error text; it will say if the question was empty or if there was a server-side issue.
