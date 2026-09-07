@@ -9,6 +9,7 @@
 🔗 **Live URL:** https://rag-qa-assistant-wheat.vercel.app
 
 📚 **Companion docs:**
+📝 **Write-up:** [Deleting the similarity threshold is what made retrieval work](https://ketanshukla.dev/blog/deleting-the-similarity-threshold)
 - 📖 [`USER_GUIDE.md`](./USER_GUIDE.md) — how to use the app, example questions that work, and troubleshooting
 - 🔬 [`HOW_IT_WORKS.md`](./HOW_IT_WORKS.md) — end-to-end technical deep dive into the ingest → embed → retrieve → answer flow
 - 🧠 [`THOUGHT_PROCESS.md`](./THOUGHT_PROCESS.md) — the reasoning behind how this was built, plus a checklist for starting a project like this from scratch
