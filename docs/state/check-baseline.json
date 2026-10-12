@@ -1,0 +1,53 @@
+{
+  "absent": [
+    "formatter configuration (tool defaults used)"
+  ],
+  "commit": "d1eabe8a413cbfb056da9298957fde7a1f47dddf",
+  "lint": {},
+  "recorded": "2026-10-12T08:01:31Z",
+  "roots": {
+    ".": {
+      "install": "pass",
+      "lockfile": "pass",
+      "malware": "pass",
+      "shape": "npm",
+      "tests": "not run: owner declined",
+      "vuln": "fail"
+    }
+  },
+  "run": {
+    "env": {
+      "CI": "true"
+    },
+    "step_limit_seconds": 1800
+  },
+  "schema": 1,
+  "steps": {
+    "format": "fail",
+    "lint": "pass",
+    "secrets": "pass"
+  },
+  "tools": {
+    "format": {
+      "node": {
+        "<standard>": "prettier 3.9.8 (standard)"
+      },
+      "python": "ruff 0.16.8 (standard)"
+    },
+    "lint": {
+      "node": {
+        ".": "eslint 9.39.5 (repository)",
+        "<standard>": "minimal configuration, standard 2.0.0-rc.2"
+      },
+      "python": "ruff 0.16.8 (standard)"
+    }
+  },
+  "unformatted": [
+    "next.config.ts",
+    "scripts/ingest.ts",
+    "src/app/api/ask/route.ts",
+    "src/app/layout.tsx",
+    "src/lib/rag.test.ts",
+    "src/lib/rag.ts"
+  ]
+}
